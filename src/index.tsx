@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import 'tailwindcss/tailwind.css'
 import App from 'pages/AppList'
 import Resource from 'pages/Resource'
+import Datasets from 'pages/Datesets'
 
 const container = document.getElementById('root') as HTMLDivElement
 const root = createRoot(container)
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="apps" element={<App />} />
       <Route path="apps/:appId" element={<AppDetail />} />
       <Route path="resources" element={<Resource />} />
+      <Route path="datasets" element={<Datasets />} />
     </Route>
   )
 )
