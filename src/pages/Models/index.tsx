@@ -23,8 +23,8 @@ const AppCard: FC<IAppCard> = ({ id, title, description, type }) => {
       to={`/apps/${id}`}
       className="light:hover:bg-gray-700 block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow hover:bg-gray-100"
     >
-      <div className="text-normal mb-2 tracking-tight">{title}</div>
-      <p className="text-sm font-normal text-gray-500">{description}</p>
+      <div className="mb-2 text-lg tracking-tight">{title}</div>
+      <p className="font-normal text-gray-500">{description}</p>
 
       <span className="mt-8 flex h-6 w-fit items-center gap-1 rounded border border-gray-100 px-2 text-xs text-gray-500">
         {type}
@@ -40,7 +40,7 @@ const AppCreateCard = ({ onClick }) => {
       className="light:hover:bg-gray-700  flex max-w-sm items-center justify-center rounded-lg border border-gray-200 bg-white p-6 shadow hover:bg-gray-100"
       onClick={onClick}
     >
-      <h5 className="mb-2 text-xl tracking-tight ">创建应用</h5>
+      <h5 className="mb-2 text-xl tracking-tight ">创建模型</h5>
     </a>
   )
 }
@@ -52,7 +52,7 @@ const AppCreateDiglog = ({ visible = false, onClose }) => {
         <Dialog.Overlay className="fixed inset-0 bg-blackA9 data-[state=open]:animate-overlayShow" />
         <Dialog.Content className="fixed left-[50%] top-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow">
           <Dialog.Title className="m-0 text-[17px] font-medium text-mauve12">
-            创建新应用
+            Edit profile
           </Dialog.Title>
           <Dialog.Description className="mb-5 mt-[10px] text-[15px] leading-normal text-mauve11">
             Make changes to your profile here. Click save when you're done.
@@ -62,7 +62,7 @@ const AppCreateDiglog = ({ visible = false, onClose }) => {
               className="w-[90px] text-right text-[15px] text-violet11"
               htmlFor="name"
             >
-              名称
+              Name
             </label>
             <input
               className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
@@ -75,7 +75,7 @@ const AppCreateDiglog = ({ visible = false, onClose }) => {
               className="w-[90px] text-right text-[15px] text-violet11"
               htmlFor="username"
             >
-              类型
+              Username
             </label>
             <input
               className="inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 outline-none focus:shadow-[0_0_0_2px] focus:shadow-violet8"
@@ -86,7 +86,7 @@ const AppCreateDiglog = ({ visible = false, onClose }) => {
           <div className="mt-[25px] flex justify-end">
             <Dialog.Close asChild>
               <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-green4 px-[15px] font-medium leading-none text-green11 hover:bg-green5 focus:shadow-[0_0_0_2px] focus:shadow-green7 focus:outline-none">
-                创建
+                Save changes
               </button>
             </Dialog.Close>
           </div>
@@ -132,7 +132,6 @@ const AppList = () => {
   }
   return (
     <div className="grid shrink-0 grow grid-cols-1 content-start gap-4 px-12 pt-8 sm:grid-cols-2 lg:grid-cols-4">
-      {mock.map(renderCard)}
       <AppCreateCard onClick={() => setVisible(true)} />
       <AppCreateDiglog visible={visible} onClose={() => setVisible(false)} />
     </div>
